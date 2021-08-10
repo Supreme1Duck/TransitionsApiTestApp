@@ -10,8 +10,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.transitionsapitestapp.R
+import com.example.transitionsapitestapp.databinding.MainFragmentLayoutBinding
 
 class MainFragment : Fragment(), View.OnClickListener {
+
+    private lateinit var viewBinding: MainFragmentLayoutBinding
 
     private lateinit var editText: EditText
     private lateinit var button : Button
@@ -21,11 +24,14 @@ class MainFragment : Fragment(), View.OnClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.main_fragment_layout, container, false)
-        editText = view.findViewById(R.id.edit_text_main)
-        button = view.findViewById(R.id.button_transition)
-        button.setOnClickListener(this)
-        return view
+        viewBinding = MainFragmentLayoutBinding.inflate(inflater)
+        val rootView = viewBinding.root
+        with(viewBinding){
+            editText = editTextMain
+            button = buttonTransition
+            button.setOnClickListener(this@MainFragment)
+            return rootView
+        }
     }
 
     override fun onClick(p0: View?) {
@@ -33,7 +39,6 @@ class MainFragment : Fragment(), View.OnClickListener {
         val extras = FragmentNavigatorExtras(
             editText to "hello_text"
         )
-
         val action = MainFragmentDirections.actionMainFragmentToSecondFragment()
         action.hello = editText.text.toString()
         findNavController().navigate(action, extras)

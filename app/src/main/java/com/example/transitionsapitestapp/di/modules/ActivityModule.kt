@@ -9,6 +9,7 @@ import com.example.transitionsapitestapp.ui.viewmodels.TransitionViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import javax.inject.Named
 
 @Module
 abstract class ActivityModule {
@@ -38,6 +39,7 @@ abstract class ActivityModule {
     abstract fun getRepositoryInterface(repositoryImpl: RepositoryImpl): IRepository
 
     @ActivityScope
+    @Named("MainActivity")
     @Binds
     abstract fun getUseCaseInterface(useCase: UseCase): IUseCase
 }
