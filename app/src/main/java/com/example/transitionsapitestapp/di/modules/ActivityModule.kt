@@ -1,14 +1,17 @@
 package com.example.transitionsapitestapp.di.modules
 
+import com.example.transitionsapitestapp.data.Database
 import com.example.transitionsapitestapp.data.RepositoryImpl
 import com.example.transitionsapitestapp.di.scopes.ActivityScope
 import com.example.transitionsapitestapp.domain.IRepository
 import com.example.transitionsapitestapp.domain.IUseCase
 import com.example.transitionsapitestapp.domain.UseCase
+import com.example.transitionsapitestapp.ui.fragments.MainFragment
 import com.example.transitionsapitestapp.ui.viewmodels.TransitionViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import dagger.android.ContributesAndroidInjector
 import javax.inject.Named
 
 @Module
@@ -17,8 +20,8 @@ abstract class ActivityModule {
     companion object {
         @ActivityScope
         @Provides
-        fun getRepository(): RepositoryImpl {
-            return RepositoryImpl()
+        fun getRepository(database: Database): RepositoryImpl {
+            return RepositoryImpl(database)
         }
 
         @ActivityScope
@@ -42,4 +45,7 @@ abstract class ActivityModule {
     @Named("MainActivity")
     @Binds
     abstract fun getUseCaseInterface(useCase: UseCase): IUseCase
+
+    @ContributesAndroidInjector(modules = [MainFragmentModule::class])
+    abstract fun contributeFragmentModule(): MainFragment
 }

@@ -38,6 +38,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -68,4 +69,13 @@ dependencies {
 
     //ViewModel
     implementation("android.arch.lifecycle:extensions:1.1.1")
+
+    //Retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.5.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.3.0")
+    implementation ("com.squareup.retrofit2:adapter-rxjava2:2.2.0")
+
+    //RxJava
+    implementation("io.reactivex.rxjava3:rxjava:3.0.13")
+    implementation("io.reactivex.rxjava3:rxandroid:3.0.0")
 }

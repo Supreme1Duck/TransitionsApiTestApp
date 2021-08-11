@@ -6,27 +6,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
-import com.example.transitionsapitestapp.R
 import com.example.transitionsapitestapp.databinding.MainFragmentLayoutBinding
+import dagger.android.support.DaggerFragment
 
-class MainFragment : Fragment(), View.OnClickListener {
+class MainFragment : DaggerFragment(), View.OnClickListener {
 
     private lateinit var viewBinding: MainFragmentLayoutBinding
-
     private lateinit var editText: EditText
-    private lateinit var button : Button
+    private lateinit var button: Button
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         viewBinding = MainFragmentLayoutBinding.inflate(inflater)
         val rootView = viewBinding.root
-        with(viewBinding){
+        with(viewBinding) {
             editText = editTextMain
             button = buttonTransition
             button.setOnClickListener(this@MainFragment)
@@ -35,7 +33,6 @@ class MainFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(p0: View?) {
-
         val extras = FragmentNavigatorExtras(
             editText to "hello_text"
         )
