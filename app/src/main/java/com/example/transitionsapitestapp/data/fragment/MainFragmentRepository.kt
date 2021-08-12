@@ -5,10 +5,11 @@ import com.example.transitionsapitestapp.domain.IMainFragmentRepository
 import com.example.transitionsapitestapp.network.WeatherApiService
 import com.example.transitionsapitestapp.network.WeatherBuilder
 import com.example.transitionsapitestapp.utils.Constants
+import io.reactivex.rxjava3.core.Single
 
 class MainFragmentRepository : IMainFragmentRepository {
 
-    override fun getWeather(city: String): WeatherClass {
+    override fun getWeather(city: String): Single<WeatherClass> {
         val service = WeatherBuilder.retrofitInstance.create(WeatherApiService::class.java)
         return service.getWeather(Constants.api_key, city)
     }

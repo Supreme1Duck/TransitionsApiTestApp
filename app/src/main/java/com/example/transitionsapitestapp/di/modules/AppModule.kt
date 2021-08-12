@@ -8,7 +8,7 @@ import dagger.Provides
 import dagger.android.ContributesAndroidInjector
 import javax.inject.Singleton
 
-@Module
+@Module(includes = [ViewModelFactoryModule::class])
 abstract class AppModule {
 
     @ActivityScope

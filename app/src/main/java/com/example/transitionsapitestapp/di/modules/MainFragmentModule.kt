@@ -1,6 +1,8 @@
 package com.example.transitionsapitestapp.di.modules
 
+import androidx.lifecycle.ViewModel
 import com.example.transitionsapitestapp.data.fragment.MainFragmentRepository
+import com.example.transitionsapitestapp.di.annotations.ViewModelKey
 import com.example.transitionsapitestapp.di.scopes.FragmentScope
 import com.example.transitionsapitestapp.domain.IMainFragmentRepository
 import com.example.transitionsapitestapp.domain.IWeatherUseCase
@@ -9,6 +11,7 @@ import com.example.transitionsapitestapp.ui.viewmodels.MainFragmentViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import dagger.multibindings.IntoMap
 
 @Module
 abstract class MainFragmentModule {
@@ -21,10 +24,15 @@ abstract class MainFragmentModule {
     @FragmentScope
     abstract fun provideRepositoryUseCase(repository: MainFragmentRepository): IMainFragmentRepository
 
+    @Binds
+    @IntoMap
+    @ViewModelKey(MainFragmentViewModel::class)
+    abstract fun getViewModel(viewModel: MainFragmentViewModel): ViewModel
+
     companion object {
         @Provides
         @FragmentScope
-        fun provideViewModel(useCase: IWeatherUseCase): MainFragmentViewModel {
+        fun provideViewModel(useCase: WeatherUseCase): MainFragmentViewModel {
             return MainFragmentViewModel(useCase)
         }
 
