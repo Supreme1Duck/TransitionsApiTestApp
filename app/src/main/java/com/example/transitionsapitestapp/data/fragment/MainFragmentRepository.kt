@@ -11,6 +11,6 @@ class MainFragmentRepository : IMainFragmentRepository {
 
     override fun getWeather(city: String): Single<WeatherClass> {
         val service = WeatherBuilder.retrofitInstance.create(WeatherApiService::class.java)
-        return service.getWeather(Constants.api_key, city)
+        return service.getWeather(city, Constants.API_KEY)
     }
 }

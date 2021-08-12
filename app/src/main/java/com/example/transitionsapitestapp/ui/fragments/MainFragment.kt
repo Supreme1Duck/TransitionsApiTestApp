@@ -1,5 +1,6 @@
 package com.example.transitionsapitestapp.ui.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -29,8 +30,6 @@ class MainFragment : DaggerFragment(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this, factory)[MainFragmentViewModel::class.java]
-        Log.d("TAGGG", viewModel.useCase.toString())
-
     }
 
     override fun onCreateView(
@@ -46,6 +45,14 @@ class MainFragment : DaggerFragment(), View.OnClickListener {
             button.setOnClickListener(this@MainFragment)
             return rootView
         }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.liveData.observe(viewLifecycleOwner) {
+            Log.d("WEATHER", it.toString())
+        }
+        viewModel.getWeather("Minsk")
     }
 
     override fun onClick(p0: View?) {
