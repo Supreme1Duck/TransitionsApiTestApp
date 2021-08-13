@@ -145,6 +145,21 @@
         android:layout_height="wrap_content"
         android:transitionName="hello_text"/>
 
+    <TextView
+        android:id="@+id/text_validation"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_main"
+        android:layout_width="match_parent"
+        tools:visibility="visible"
+        android:visibility="invisible"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:textSize="17sp"
+        android:text="@string/type_only_letters"
+        android:textColor="@color/red"
+        android:layout_height="wrap_content"
+        android:transitionName="hello_text"/>
+
     <Button
         android:id="@+id/button_transition"
         android:layout_width="200dp"

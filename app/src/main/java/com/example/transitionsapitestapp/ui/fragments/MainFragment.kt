@@ -1,6 +1,7 @@
 package com.example.transitionsapitestapp.ui.fragments
 
 import android.content.Context
+import android.graphics.Color.red
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,9 +14,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import com.example.transitionsapitestapp.R
 import com.example.transitionsapitestapp.databinding.MainFragmentLayoutBinding
 import com.example.transitionsapitestapp.di.viewmodel_factory.ViewModelFactory
 import com.example.transitionsapitestapp.ui.viewmodels.MainFragmentViewModel
+import com.example.transitionsapitestapp.utils.Validation
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -30,6 +33,7 @@ class MainFragment : DaggerFragment(), View.OnClickListener {
     private lateinit var windTextView: TextView
     private lateinit var pressureTextView: TextView
     private lateinit var transitionTextView: TextView
+    private lateinit var validationText: TextView
 
     @Inject
     lateinit var factory: ViewModelFactory
@@ -56,6 +60,7 @@ class MainFragment : DaggerFragment(), View.OnClickListener {
             windTextView = wind
             pressureTextView = pressure
             transitionTextView = heloTextTransition
+            validationText = textValidation
             button.setOnClickListener(this@MainFragment)
             return rootView
         }
@@ -75,11 +80,15 @@ class MainFragment : DaggerFragment(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         transitionTextView.text = editText.text
-        val extras = FragmentNavigatorExtras(
-            transitionTextView to "hello_text"
-        )
-        val action = MainFragmentDirections.actionMainFragmentToSecondFragment()
-        editText.text.toString().also { action.hello = it }
-        findNavController().navigate(action, extras)
+        if (Validation.validate(transitionTextView.text.toString())) {
+            val extras = FragmentNavigatorExtras(
+                transitionTextView to "hello_text"
+            )
+            val action = MainFragmentDirections.actionMainFragmentToSecondFragment()
+            editText.text.toString().also { action.hello = it }
+            findNavController().navigate(action, extras)
+        }else{
+            validationText.visibility = View.VISIBLE
+        }
     }
 }
