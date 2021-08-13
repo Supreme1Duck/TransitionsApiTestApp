@@ -5,25 +5,151 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <ImageView
+        android:src="@drawable/ic_cloud_computing"
+        app:tint="@color/purple_500"
+        app:layout_constraintBottom_toTopOf="@id/clouds"
+        app:layout_constraintLeft_toLeftOf="@id/clouds"
+        app:layout_constraintRight_toRightOf="@id/clouds"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
+
+    <TextView
+        android:text="few clouds"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="90dp"
+        android:id="@+id/clouds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:src="@drawable/ic_sun"
+        app:tint="@color/purple_500"
+        app:layout_constraintBottom_toTopOf="@id/weather"
+        app:layout_constraintLeft_toLeftOf="@id/weather"
+        app:layout_constraintRight_toRightOf="@id/weather"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
+
+    <TextView
+        android:text="288.01"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="90dp"
+        android:id="@+id/weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:src="@drawable/ic_smile"
+        app:layout_constraintBottom_toTopOf="@id/weather_feel"
+        app:layout_constraintLeft_toLeftOf="@id/weather_feel"
+        app:layout_constraintRight_toRightOf="@id/weather_feel"
+        android:layout_width="50dp"
+        app:tint="@color/purple_500"
+        android:layout_height="50dp"/>
+
+    <TextView
+        android:text="288.01"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="90dp"
+        android:id="@+id/weather_feel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:src="@drawable/ic_breeze"
+        app:tint="@color/purple_500"
+        app:layout_constraintBottom_toTopOf="@id/wind"
+        app:layout_constraintLeft_toLeftOf="@id/wind"
+        app:layout_constraintRight_toRightOf="@id/wind"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
+
+    <TextView
+        android:text="4 m/s"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="190dp"
+        android:id="@+id/wind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:src="@drawable/ic_gauge"
+        app:tint="@color/purple_500"
+        app:layout_constraintBottom_toTopOf="@id/pressure"
+        app:layout_constraintLeft_toLeftOf="@id/pressure"
+        app:layout_constraintRight_toRightOf="@id/pressure"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
+
+    <TextView
+        android:text="10013 PA"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="190dp"
+        android:id="@+id/pressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <EditText
         android:id="@+id/edit_text_main"
+        android:textSize="20sp"
+        android:hint="Enter your name"
+        android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
         android:layout_height="48dp"
         android:layout_marginTop="25dp"
         android:backgroundTint="@color/purple_700"
-        android:transitionName="hello_text"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
 
+    <TextView
+        android:id="@+id/helo_text_transition"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_main"
+        android:layout_width="match_parent"
+        tools:text="Your Name"
+        android:visibility="invisible"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"
+        android:transitionName="hello_text"/>
 
     <Button
         android:id="@+id/button_transition"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:text="Transition"
+        android:text="@string/move"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

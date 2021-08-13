@@ -10,7 +10,7 @@ interface WeatherApiService {
 
     @GET("/data/2.5/weather")
     fun getWeather(
-        @Query("appid") apiKey: String,
-        @Query("q") city: String
+        @Query("q") city: String,
+        @Query("appid") apiKey: String
     ): Single<WeatherClass>
 }

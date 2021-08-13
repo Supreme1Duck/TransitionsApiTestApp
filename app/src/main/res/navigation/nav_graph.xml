@@ -22,6 +22,19 @@
         <argument
             android:name="hello"
             app:argType="string"
-            android:defaultValue="HELLO" />
+            android:defaultValue="NO_NAME" />
+        <action
+            android:id="@+id/action_secondFragment_to_activityFragment"
+            app:destination="@id/activityFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/activityFragment"
+        android:name="com.example.transitionsapitestapp.ui.fragments.ActivityFragment"
+        android:label="fragment_activity"
+        tools:layout="@layout/fragment_activity">
+        <argument
+            android:name="hello_name"
+            app:argType="string"
+            android:defaultValue="NO_NAME"/>
     </fragment>
 </navigation>

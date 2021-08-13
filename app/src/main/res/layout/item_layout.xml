@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/item_layout_image_view"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_gauge" />
+
+    <TextView
+        android:id="@+id/item_layout_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="@id/item_layout_image_view"
+        app:layout_constraintTop_toBottomOf="@id/item_layout_image_view"
+        app:layout_constraintRight_toRightOf="@id/item_layout_image_view"
+        tools:text="Give me a text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

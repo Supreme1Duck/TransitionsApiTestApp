@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/name_text_view"
+        android:textSize="27sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        tools:text="Your Name"
+        android:layout_width="match_parent"
+        android:transitionName="hello_text"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/what_you_want"
+        android:layout_marginTop="15dp"
+        android:text="@string/what_you_want_to_choose"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/what_you_want"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.transitionsapitestapp.databinding.MainFragmentLayoutBinding
@@ -22,6 +24,12 @@ class MainFragment : DaggerFragment(), View.OnClickListener {
     private lateinit var viewBinding: MainFragmentLayoutBinding
     private lateinit var editText: EditText
     private lateinit var button: Button
+    private lateinit var cloudsTextView: TextView
+    private lateinit var temperatureTextView: TextView
+    private lateinit var tempFeelsLikeTextView: TextView
+    private lateinit var windTextView: TextView
+    private lateinit var pressureTextView: TextView
+    private lateinit var transitionTextView: TextView
 
     @Inject
     lateinit var factory: ViewModelFactory
@@ -42,6 +50,12 @@ class MainFragment : DaggerFragment(), View.OnClickListener {
         with(viewBinding) {
             editText = editTextMain
             button = buttonTransition
+            cloudsTextView = clouds
+            temperatureTextView = weather
+            tempFeelsLikeTextView = weatherFeel
+            windTextView = wind
+            pressureTextView = pressure
+            transitionTextView = heloTextTransition
             button.setOnClickListener(this@MainFragment)
             return rootView
         }
@@ -50,14 +64,19 @@ class MainFragment : DaggerFragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.liveData.observe(viewLifecycleOwner) {
-            Log.d("WEATHER", it.toString())
+            cloudsTextView.text = it.weather[0].description
+            temperatureTextView.text = it.main.temp.toString()
+            tempFeelsLikeTextView.text = (it.main.temp - 2.5).toString()
+            windTextView.text = it.wind.speed.toString() + "m/s"
+            pressureTextView.text = it.main.pressure.toString() + "PA"
         }
         viewModel.getWeather("Minsk")
     }
 
     override fun onClick(p0: View?) {
+        transitionTextView.text = editText.text
         val extras = FragmentNavigatorExtras(
-            editText to "hello_text"
+            transitionTextView to "hello_text"
         )
         val action = MainFragmentDirections.actionMainFragmentToSecondFragment()
         editText.text.toString().also { action.hello = it }
