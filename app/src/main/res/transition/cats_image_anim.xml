@@ -1,10 +1,10 @@
-<transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
+    android:transitionOrdering="sequential">
 
-    <changeBounds>
-        <arcMotion
-            android:maximumAngle="90"
-            android:minimumHorizontalAngle="90"
-            android:minimumVerticalAngle="0" />
-    </changeBounds>
+    <arcMotion
+        android:maximumAngle="90"
+        android:minimumHorizontalAngle="90"
+        android:minimumVerticalAngle="0" />
+    <changeBounds />
 
 </transitionSet>

@@ -43,5 +43,10 @@
     <fragment
         android:id="@+id/catsFragment"
         android:name="com.example.transitionsapitestapp.ui.fragments.chosefragments.CatsFragment"
-        android:label="CatsFragment" />
+        android:label="CatsFragment" >
+            <argument
+                android:name="image"
+                app:argType="string"
+                android:defaultValue="https://image.flaticon.com/icons/png/512/752/752755.png"/>
+    </fragment>
 </navigation>

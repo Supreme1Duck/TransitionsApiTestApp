@@ -32,7 +32,7 @@ abstract class MainFragmentModule {
     companion object {
         @Provides
         @FragmentScope
-        fun provideViewModel(useCase: WeatherUseCase): MainFragmentViewModel {
+        fun provideViewModel(useCase: IWeatherUseCase): MainFragmentViewModel {
             return MainFragmentViewModel(useCase)
         }
 

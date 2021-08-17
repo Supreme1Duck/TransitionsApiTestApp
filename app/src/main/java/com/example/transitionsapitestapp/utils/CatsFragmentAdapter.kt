@@ -1,5 +1,6 @@
 package com.example.transitionsapitestapp.utils
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +12,7 @@ import com.example.transitionsapitestapp.R
 import com.example.transitionsapitestapp.data.fragment.cats.entity.CatsEntity
 
 class CatsFragmentAdapter(
-    private val catsList: CatsEntity
+    private var catsList: CatsEntity
 ) : RecyclerView.Adapter<CatsFragmentAdapter.CatsHolder>() {
 
     private lateinit var context: Context
@@ -32,6 +33,12 @@ class CatsFragmentAdapter(
     override fun onBindViewHolder(holder: CatsHolder, position: Int) {
         val imageUrl = catsList[position].url
         Glide.with(context).load(imageUrl).into(holder.imageView)
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setData(it : CatsEntity){
+        catsList = it
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int = catsList.size

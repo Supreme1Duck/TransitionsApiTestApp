@@ -14,6 +14,7 @@ class CatsRepository : ICatsRepository {
     }
 
     override fun getFavourites(): Single<CatsEntity>? {
-        TODO("Not yet implemented")
+        // TODO
+        return null
     }
 }
