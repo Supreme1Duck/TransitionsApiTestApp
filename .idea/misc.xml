@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/andrew.utko/AndroidStudioProjects/TransitionsApiTestApp/app/src/main/res/layout/activity_main.xml" value="0.14990942028985507" />
+        <entry key="..\:/Users/andrew.utko/AndroidStudioProjects/TransitionsApiTestApp/app/src/main/res/layout/cats_recycler_item.xml" value="0.23731884057971014" />
         <entry key="..\:/Users/andrew.utko/AndroidStudioProjects/TransitionsApiTestApp/app/src/main/res/layout/fragment_activity.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/andrew.utko/AndroidStudioProjects/TransitionsApiTestApp/app/src/main/res/layout/fragment_cats_layout.xml" value="0.23731884057971014" />
         <entry key="..\:/Users/andrew.utko/AndroidStudioProjects/TransitionsApiTestApp/app/src/main/res/layout/item_layout.xml" value="0.2418478260869565" />
         <entry key="..\:/Users/andrew.utko/AndroidStudioProjects/TransitionsApiTestApp/app/src/main/res/layout/main_fragment_layout.xml" value="0.264" />
         <entry key="..\:/Users/andrew.utko/AndroidStudioProjects/TransitionsApiTestApp/app/src/main/res/layout/second_fragment_layout.xml" value="0.264" />

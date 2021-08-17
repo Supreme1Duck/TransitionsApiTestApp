@@ -36,5 +36,12 @@
             android:name="hello_name"
             app:argType="string"
             android:defaultValue="NO_NAME"/>
+        <action
+            android:id="@+id/action_activityFragment_to_catsFragment"
+            app:destination="@id/catsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/catsFragment"
+        android:name="com.example.transitionsapitestapp.ui.fragments.chosefragments.CatsFragment"
+        android:label="CatsFragment" />
 </navigation>

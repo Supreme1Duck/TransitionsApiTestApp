@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.os.postDelayed
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -44,7 +43,7 @@ class SecondFragment : Fragment() {
         val extras = FragmentNavigatorExtras(
             nameTextView to "hello_name"
         )
-        Handler().postDelayed(1000){
+        Handler().postDelayed(1000) {
             findNavController().navigate(action, extras)
         }
     }

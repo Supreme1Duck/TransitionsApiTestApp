@@ -1,7 +1,6 @@
 package com.example.transitionsapitestapp.utils
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,10 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.transitionsapitestapp.R
 
-class Adapter(
+class MainFragmentAdapter(
     private var recyclerItems: List<RecyclerItem>,
     private val context: Context
-) : RecyclerView.Adapter<Adapter.AdapterViewHolder>() {
+) : RecyclerView.Adapter<MainFragmentAdapter.AdapterViewHolder>() {
 
     class AdapterViewHolder(
         itemView: View

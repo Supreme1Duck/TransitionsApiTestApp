@@ -1,9 +1,6 @@
 package com.example.transitionsapitestapp.ui.fragments
 
-import android.content.Context
-import android.graphics.Color.red
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,13 +8,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
-import com.example.transitionsapitestapp.R
 import com.example.transitionsapitestapp.databinding.MainFragmentLayoutBinding
 import com.example.transitionsapitestapp.di.viewmodel_factory.ViewModelFactory
-import com.example.transitionsapitestapp.ui.viewmodels.MainFragmentViewModel
+import com.example.transitionsapitestapp.ui.fragments.viewmodels.MainFragmentViewModel
 import com.example.transitionsapitestapp.utils.Validation
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject

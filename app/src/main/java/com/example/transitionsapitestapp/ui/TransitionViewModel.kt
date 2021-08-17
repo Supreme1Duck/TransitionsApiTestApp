@@ -1,4 +1,4 @@
-package com.example.transitionsapitestapp.ui.viewmodels
+package com.example.transitionsapitestapp.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

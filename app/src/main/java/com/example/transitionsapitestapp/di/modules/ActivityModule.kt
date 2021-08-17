@@ -7,7 +7,8 @@ import com.example.transitionsapitestapp.domain.IRepository
 import com.example.transitionsapitestapp.domain.IUseCase
 import com.example.transitionsapitestapp.domain.UseCase
 import com.example.transitionsapitestapp.ui.fragments.MainFragment
-import com.example.transitionsapitestapp.ui.viewmodels.TransitionViewModel
+import com.example.transitionsapitestapp.ui.TransitionViewModel
+import com.example.transitionsapitestapp.ui.fragments.chosefragments.CatsFragment
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -47,4 +48,8 @@ abstract class ActivityModule {
     @FragmentScope
     @ContributesAndroidInjector(modules = [MainFragmentModule::class])
     abstract fun contributeFragmentModule(): MainFragment
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = [CatsFragmentModule::class])
+    abstract fun contributeCatsFragmentModule(): CatsFragment
 }

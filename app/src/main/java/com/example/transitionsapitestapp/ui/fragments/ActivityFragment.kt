@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.transitionsapitestapp.databinding.FragmentActivityBinding
-import com.example.transitionsapitestapp.utils.Adapter
+import com.example.transitionsapitestapp.utils.MainFragmentAdapter
 import com.example.transitionsapitestapp.utils.Constants
 
 class ActivityFragment : Fragment() {
@@ -39,7 +39,7 @@ class ActivityFragment : Fragment() {
             whatText.visibility = View.VISIBLE
         }
         binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-        binding.recyclerView.adapter = Adapter(Constants.recyclerItems, requireContext())
+        binding.recyclerView.adapter = MainFragmentAdapter(Constants.recyclerItems, requireContext())
         Handler().postDelayed(1500){
             binding.recyclerView.visibility = View.VISIBLE
         }

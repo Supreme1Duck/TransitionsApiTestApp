@@ -7,7 +7,7 @@ import com.example.transitionsapitestapp.di.scopes.FragmentScope
 import com.example.transitionsapitestapp.domain.IMainFragmentRepository
 import com.example.transitionsapitestapp.domain.IWeatherUseCase
 import com.example.transitionsapitestapp.domain.WeatherUseCase
-import com.example.transitionsapitestapp.ui.viewmodels.MainFragmentViewModel
+import com.example.transitionsapitestapp.ui.fragments.viewmodels.MainFragmentViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
