@@ -58,7 +58,7 @@ class CatsFragment : DaggerFragment() {
         viewModel.liveData.observe(viewLifecycleOwner) {
             adapter.setData(it)
         }
-        viewModel.getData(10)
+        viewModel.getData(20)
         return viewBinding.root
     }
 
@@ -105,5 +105,7 @@ class CatsFragment : DaggerFragment() {
                 }
 
             }).submit()
+        val density = this.resources.displayMetrics.density
+        imageView.layoutParams = ViewGroup.LayoutParams((density * 35).toInt(), (density * 35).toInt())
     }
 }
