@@ -52,8 +52,8 @@ class CatsFragment : DaggerFragment() {
             imageView = catsImageView
             recyclerView = catsRecyclerView
         }
-        postponeEnterTransition()
         getAnimation()
+        postponeEnterTransition()
         val adapter = initializeAdapter()
         viewModel.liveData.observe(viewLifecycleOwner) {
             adapter.setData(it)
@@ -79,7 +79,6 @@ class CatsFragment : DaggerFragment() {
         val args: CatsFragmentArgs by navArgs()
         Glide.with(this)
             .load(args.image)
-            .fitCenter()
             .listener(object : RequestListener<Drawable> {
                 override fun onLoadFailed(
                     e: GlideException?,
@@ -98,12 +97,11 @@ class CatsFragment : DaggerFragment() {
                     dataSource: DataSource?,
                     isFirstResource: Boolean
                 ): Boolean {
-                    imageView.setImageDrawable(resource)
                     startPostponedEnterTransition()
                     Log.d("Logging success", "Image Cats loaded.")
                     return false
                 }
 
-            }).submit()
+            }).into(imageView)
     }
 }
