@@ -60,13 +60,13 @@ class ActivityFragment : Fragment(), ActivityFragmentAdapter.OnClickListener {
         when (text.text) {
             // Cats
             Constants.recyclerItems[0].name -> {
-                imageView.transitionName = "myTransition"
+                imageView.transitionName = "Cats"
                 val extras = FragmentNavigatorExtras(
-                    imageView to "hello_text"
+                    imageView to "Cats"
                 )
                 val action = ActivityFragmentDirections.actionActivityFragmentToCatsFragment()
                 action.image = url
-                findNavController().navigate(action)
+                findNavController().navigate(action, extras)
             }
             // Weather
             Constants.recyclerItems[1].name -> {
