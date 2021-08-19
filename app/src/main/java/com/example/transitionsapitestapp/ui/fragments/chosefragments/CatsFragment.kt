@@ -12,6 +12,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.Fade
+import androidx.transition.TransitionInflater
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -22,7 +23,6 @@ import com.example.transitionsapitestapp.databinding.FragmentCatsLayoutBinding
 import com.example.transitionsapitestapp.di.viewmodel_factory.ViewModelFactory
 import com.example.transitionsapitestapp.ui.fragments.chosefragments.viewmodel.CatsFragmentViewModel
 import com.example.transitionsapitestapp.utils.CatsFragmentAdapter
-import com.example.transitionsapitestapp.utils.CatsTransition
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -58,13 +58,14 @@ class CatsFragment : DaggerFragment() {
         viewModel.liveData.observe(viewLifecycleOwner) {
             adapter.setData(it)
         }
-        viewModel.getData(10)
+        viewModel.getData(20)
         return viewBinding.root
     }
 
     private fun getAnimation() {
         loadAnimationDrawable()
-        sharedElementEnterTransition = CatsTransition()
+        sharedElementEnterTransition =
+            TransitionInflater.from(requireContext()).inflateTransition(android.R.transition.move)
         enterTransition = Fade()
     }
 
