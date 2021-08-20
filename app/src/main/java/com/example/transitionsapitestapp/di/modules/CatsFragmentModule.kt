@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import com.example.transitionsapitestapp.data.fragment.cats.repository.CatsRepository
 import com.example.transitionsapitestapp.di.annotations.ViewModelKey
 import com.example.transitionsapitestapp.di.scopes.CatsFragmentScope
-import com.example.transitionsapitestapp.di.scopes.FragmentScope
 import com.example.transitionsapitestapp.domain.CatsUseCase
 import com.example.transitionsapitestapp.domain.ICatsRepository
 import com.example.transitionsapitestapp.domain.ICatsUseCase

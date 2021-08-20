@@ -16,10 +16,11 @@ interface NewsApiService {
     fun getNews(
         @Header("X-Api-key") apiKey: String,
         @Query("q") target: String,
-        @Query("sortBy") popularity: String = "popularity",
+        @Query("sortBy") sortBy: String,
         @Query("from") dateFrom: String,
         @Query("to") dateTo: String,
-        @Query("language") language: String = "ru"
+        @Query("language") language: String,
+        @Query("pageSize") pageSize: Int
     ): Single<News>
 
     @GET("/v2/top-headlines")
@@ -29,8 +30,6 @@ interface NewsApiService {
         @Query("category") category: String = "business",
         @Query("q") target: String = ""
     ): Single<TopHeadlines>
-
-
 
     companion object Builder{
         val retrofit: Retrofit = Retrofit.Builder()

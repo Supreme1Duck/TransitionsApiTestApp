@@ -21,8 +21,8 @@
         tools:layout="@layout/second_fragment_layout">
         <argument
             android:name="hello"
-            app:argType="string"
-            android:defaultValue="NO_NAME" />
+            android:defaultValue="NO_NAME"
+            app:argType="string" />
         <action
             android:id="@+id/action_secondFragment_to_activityFragment"
             app:destination="@id/activityFragment" />
@@ -34,19 +34,37 @@
         tools:layout="@layout/fragment_activity">
         <argument
             android:name="hello_name"
-            app:argType="string"
-            android:defaultValue="NO_NAME"/>
+            android:defaultValue="NO_NAME"
+            app:argType="string" />
         <action
             android:id="@+id/action_activityFragment_to_catsFragment"
             app:destination="@id/catsFragment" />
+        <action
+            android:id="@+id/action_activityFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
     </fragment>
     <fragment
         android:id="@+id/catsFragment"
+        tools:layout="@layout/fragment_cats_layout"
         android:name="com.example.transitionsapitestapp.ui.fragments.chosefragments.CatsFragment"
-        android:label="CatsFragment" >
-            <argument
-                android:name="image"
-                app:argType="string"
-                android:defaultValue="https://image.flaticon.com/icons/png/512/752/752755.png"/>
+        android:label="CatsFragment">
+
+        <argument
+            android:name="image"
+            android:defaultValue="https://image.flaticon.com/icons/png/512/752/752755.png"
+            app:argType="string" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/newsFragment"
+        tools:layout="@layout/news_fragment"
+        android:name="com.example.transitionsapitestapp.ui.fragments.chosefragments.NewsFragment"
+        android:label="NewsFragment">
+
+        <argument
+            android:name="image"
+            android:defaultValue="https://image.flaticon.com/icons/png/512/752/752755.png"
+            app:argType="string" />
+
     </fragment>
 </navigation>

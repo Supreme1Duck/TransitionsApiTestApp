@@ -74,7 +74,13 @@ class ActivityFragment : Fragment(), ActivityFragmentAdapter.OnClickListener {
             }
             // News
             Constants.recyclerItems[2].name -> {
-
+                imageView.transitionName = "News"
+                val extras = FragmentNavigatorExtras(
+                    imageView to "News"
+                )
+                val action = ActivityFragmentDirections.actionActivityFragmentToNewsFragment()
+                action.image = url
+                findNavController().navigate(action, extras)
             }
             // Movies
             Constants.recyclerItems[3].name -> {

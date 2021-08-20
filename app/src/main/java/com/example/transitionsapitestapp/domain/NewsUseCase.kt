@@ -2,7 +2,9 @@ package com.example.transitionsapitestapp.domain
 
 import com.example.transitionsapitestapp.data.fragment.news.basicnews.News
 import com.example.transitionsapitestapp.data.fragment.news.topheadlines.TopHeadlines
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.schedulers.Schedulers
 
 class NewsUseCase(
     private val repository: INewsRepository
@@ -10,7 +12,7 @@ class NewsUseCase(
 
     override fun execute(
         target: String,
-        popularity: String,
+        sortBy: String,
         dateFrom: String,
         dateTo: String,
         language: String,
@@ -18,21 +20,25 @@ class NewsUseCase(
         category: String,
     ): Pair<Single<News>, Single<TopHeadlines>> {
         return Pair(
-            repository.getNews(target, popularity, dateFrom, dateTo, language),
+            repository.getNews(target, sortBy, dateFrom, dateTo, language)
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread()),
             repository.getHeadlines(country, category, target)
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread())
         )
     }
 
     override fun getNews(
         target: String,
-        popularity: String,
+        sortBy: String,
         dateFrom: String,
         dateTo: String,
         language: String
     ): Single<News> {
         return repository.getNews(
             target,
-            popularity,
+            sortBy,
             dateFrom,
             dateTo,
             language

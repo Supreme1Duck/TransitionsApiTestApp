@@ -4,7 +4,10 @@
     <string name="move">Move</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="what_you_want_to_choose">What you want to choose?</string>
+    <string name="what_you_want_to_choose">What do you want to choose?</string>
     <string name="type_only_letters">Type only letters</string>
     <string name="cats_list">Cats List</string>
+    <string name="news">NEWS</string>
+    <string name="name">Name</string>
+    <string name="title">TITLE</string>
 </resources>

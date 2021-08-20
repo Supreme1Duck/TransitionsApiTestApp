@@ -7,26 +7,26 @@ import io.reactivex.rxjava3.core.Single
 interface INewsUseCase {
 
     fun execute(
-        target: String,
-        popularity: String,
-        dateFrom: String,
-        dateTo: String,
-        language: String,
-        country: String,
-        category: String,
+        target: String = "Bitcoin",
+        sortBy: String = "",
+        dateFrom: String = "",
+        dateTo: String = "",
+        language: String = "ru",
+        country: String = "ru",
+        category: String = "",
     ): Pair<Single<News>, Single<TopHeadlines>>
 
     fun getNews(
         target: String,
-        popularity: String,
-        dateFrom: String,
-        dateTo: String,
-        language: String
+        sortBy: String = "popularity",
+        dateFrom: String = "",
+        dateTo: String = "",
+        language: String = "ru"
     ): Single<News>
 
     fun getTopHeadlines(
-        country: String,
-        category: String,
+        country: String = "ru",
+        category: String = "",
         target: String
     ): Single<TopHeadlines>
 }

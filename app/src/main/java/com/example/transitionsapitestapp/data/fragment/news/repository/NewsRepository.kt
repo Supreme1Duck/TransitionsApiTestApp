@@ -4,13 +4,12 @@ import com.example.transitionsapitestapp.data.fragment.news.basicnews.News
 import com.example.transitionsapitestapp.data.fragment.news.topheadlines.TopHeadlines
 import com.example.transitionsapitestapp.domain.INewsRepository
 import com.example.transitionsapitestapp.network.NewsApiService
-import com.example.transitionsapitestapp.network.WeatherBuilder
 import com.example.transitionsapitestapp.utils.Constants
 import io.reactivex.rxjava3.core.Single
 
 class NewsRepository : INewsRepository {
 
-    private val service = WeatherBuilder.retrofitInstance.create(NewsApiService::class.java)
+    private val service = NewsApiService.retrofit.create(NewsApiService::class.java)
 
     override fun getNews(
         target: String,
@@ -25,7 +24,8 @@ class NewsRepository : INewsRepository {
             popularity,
             dateFrom,
             dateTo,
-            language
+            language,
+            20
         )
     }
 

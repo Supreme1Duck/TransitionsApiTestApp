@@ -3,7 +3,7 @@ package com.example.transitionsapitestapp.di.modules
 import androidx.lifecycle.ViewModel
 import com.example.transitionsapitestapp.data.fragment.MainFragmentRepository
 import com.example.transitionsapitestapp.di.annotations.ViewModelKey
-import com.example.transitionsapitestapp.di.scopes.FragmentScope
+import com.example.transitionsapitestapp.di.scopes.NewsFragmentScope
 import com.example.transitionsapitestapp.domain.IMainFragmentRepository
 import com.example.transitionsapitestapp.domain.IWeatherUseCase
 import com.example.transitionsapitestapp.domain.WeatherUseCase
@@ -17,11 +17,11 @@ import dagger.multibindings.IntoMap
 abstract class MainFragmentModule {
 
     @Binds
-    @FragmentScope
+    @NewsFragmentScope
     abstract fun provideUseCaseInterface(useCase: WeatherUseCase): IWeatherUseCase
 
     @Binds
-    @FragmentScope
+    @NewsFragmentScope
     abstract fun provideRepositoryUseCase(repository: MainFragmentRepository): IMainFragmentRepository
 
     @Binds
@@ -31,19 +31,19 @@ abstract class MainFragmentModule {
 
     companion object {
         @Provides
-        @FragmentScope
+        @NewsFragmentScope
         fun provideViewModel(useCase: IWeatherUseCase): MainFragmentViewModel {
             return MainFragmentViewModel(useCase)
         }
 
         @Provides
-        @FragmentScope
+        @NewsFragmentScope
         fun provideWeatherUseCase(repository: IMainFragmentRepository): WeatherUseCase {
             return WeatherUseCase(repository)
         }
 
         @Provides
-        @FragmentScope
+        @NewsFragmentScope
         fun provideRepository(): MainFragmentRepository {
             return MainFragmentRepository()
         }
