@@ -1,16 +1,25 @@
 package com.example.transitionsapitestapp.ui.fragments.chosefragments
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.transition.TransitionInflater
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.example.transitionsapitestapp.data.fragment.news.basicnews.Article
 import com.example.transitionsapitestapp.data.fragment.news.basicnews.News
 import com.example.transitionsapitestapp.databinding.NewsFragmentBinding
@@ -22,13 +31,14 @@ import dagger.android.support.DaggerFragment
 import java.time.Duration
 import javax.inject.Inject
 
-class NewsFragment : DaggerFragment(), NewsFragmentAdapter.Listener {
+class NewsFragment : DaggerFragment(), NewsFragmentAdapter.Listener, SwipeRefreshLayout.OnRefreshListener {
 
     private lateinit var binding: NewsFragmentBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var button: Button
     private lateinit var editText: EditText
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
+    private lateinit var animationImage : ImageView
     private var newsList: ArrayList<Article> = ArrayList()
 
     @Inject
@@ -51,7 +61,9 @@ class NewsFragment : DaggerFragment(), NewsFragmentAdapter.Listener {
             button = btnSearch
             editText = etQuery
             swipeRefreshLayout = swipeRefresh
+            animationImage = imageView
         }
+        swipeRefreshLayout.setOnRefreshListener(this)
         getAnimation()
         recyclerView.adapter = NewsFragmentAdapter(this, newsList)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -63,15 +75,48 @@ class NewsFragment : DaggerFragment(), NewsFragmentAdapter.Listener {
     }
 
     override fun onItemClick() {
-        view?.let { Snackbar.make(it, "Clicked !", Snackbar.LENGTH_LONG) }
+        Snackbar.make(binding.root, "Clicked", Snackbar.LENGTH_LONG).show()
     }
 
+    override fun onRefresh() {
+        Snackbar.make(binding.root, "Refreshed", Snackbar.LENGTH_LONG).show()
+        swipeRefreshLayout.isRefreshing = false
+    }
 
     private fun getAnimation() {
         val animation = TransitionInflater.from(requireContext())
             .inflateTransition(android.R.transition.move)
+        loadAnimationImage()
         sharedElementEnterTransition = animation
-        sharedElementReturnTransition = animation
     }
 
+    private fun loadAnimationImage(){
+        val args: CatsFragmentArgs by navArgs()
+        Glide.with(this)
+            .load(args.image)
+            .listener(object : RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    Log.d("Logging exception", "Image not loaded")
+                    return false
+                }
+
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable>,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    startPostponedEnterTransition()
+                    Log.d("Logging success", "Image Cats loaded.")
+                    return false
+                }
+
+            }).into(animationImage)
+    }
 }
