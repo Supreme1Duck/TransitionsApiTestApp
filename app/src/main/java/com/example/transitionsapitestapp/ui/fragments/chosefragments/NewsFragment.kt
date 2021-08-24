@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.transition.TransitionInflater
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.lifecycle.ViewModelProvider
@@ -21,24 +21,22 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.example.transitionsapitestapp.data.fragment.news.basicnews.Article
-import com.example.transitionsapitestapp.data.fragment.news.basicnews.News
 import com.example.transitionsapitestapp.databinding.NewsFragmentBinding
 import com.example.transitionsapitestapp.di.viewmodel_factory.ViewModelFactory
 import com.example.transitionsapitestapp.ui.fragments.chosefragments.viewmodel.NewsFragmentViewModel
 import com.example.transitionsapitestapp.utils.NewsFragmentAdapter
 import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.DaggerFragment
-import java.time.Duration
 import javax.inject.Inject
 
-class NewsFragment : DaggerFragment(), NewsFragmentAdapter.Listener, SwipeRefreshLayout.OnRefreshListener {
+class NewsFragment : DaggerFragment(), NewsFragmentAdapter.Listener,
+    SwipeRefreshLayout.OnRefreshListener, View.OnTouchListener {
 
     private lateinit var binding: NewsFragmentBinding
     private lateinit var recyclerView: RecyclerView
-    private lateinit var button: Button
     private lateinit var editText: EditText
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
-    private lateinit var animationImage : ImageView
+    private lateinit var animationImage: ImageView
     private var newsList: ArrayList<Article> = ArrayList()
 
     @Inject
@@ -58,12 +56,12 @@ class NewsFragment : DaggerFragment(), NewsFragmentAdapter.Listener, SwipeRefres
         binding = NewsFragmentBinding.inflate(inflater)
         with(binding) {
             recyclerView = newsRecyclerView
-            button = btnSearch
             editText = etQuery
             swipeRefreshLayout = swipeRefresh
             animationImage = imageView
         }
         swipeRefreshLayout.setOnRefreshListener(this)
+        editText.setOnTouchListener(this)
         getAnimation()
         recyclerView.adapter = NewsFragmentAdapter(this, newsList)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -90,7 +88,7 @@ class NewsFragment : DaggerFragment(), NewsFragmentAdapter.Listener, SwipeRefres
         sharedElementEnterTransition = animation
     }
 
-    private fun loadAnimationImage(){
+    private fun loadAnimationImage() {
         val args: CatsFragmentArgs by navArgs()
         Glide.with(this)
             .load(args.image)
@@ -118,5 +116,15 @@ class NewsFragment : DaggerFragment(), NewsFragmentAdapter.Listener, SwipeRefres
                 }
 
             }).into(animationImage)
+    }
+
+    override fun onTouch(view: View, p1: MotionEvent): Boolean {
+        when (p1.action) {
+            MotionEvent.ACTION_DOWN -> {
+                view.performClick()
+                Snackbar.make(binding.root, "Touching the EditText", Snackbar.LENGTH_LONG).show()
+            }
+        }
+        return false
     }
 }
