@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/background_splash_screen"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@drawable/background_splash_screen">
 
     <TextView
-        android:id="@+id/text_view"
+        android:id="@+id/text_view_animation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/jost_variablefont_wght"
@@ -16,8 +18,10 @@
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/image_to_animate"
@@ -25,40 +29,51 @@
         android:layout_height="70dp"
         android:layout_marginTop="150dp"
         android:src="@drawable/ic_sync_circular_arrows"
-        app:layout_constraintLeft_toLeftOf="@id/text_view"
-        app:layout_constraintRight_toRightOf="@id/text_view"
-        app:layout_constraintTop_toBottomOf="@id/text_view" />
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="@id/text_view_animation"
+        app:layout_constraintRight_toRightOf="@id/text_view_animation"
+        app:layout_constraintTop_toBottomOf="@id/text_view_animation"
+        tools:visibility="visible" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linear_layout_animation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginBottom="75dp"
         android:orientation="horizontal"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent">
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:visibility="visible">
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="40dp"
+            android:id="@+id/firstIconAnim"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:padding="20dp"
             android:src="@drawable/ic_news" />
 
         <ImageView
-            android:layout_width="52dp"
-            android:layout_height="52dp"
-            android:layout_marginStart="40dp"
+            android:id="@+id/secondIconAnim"
+            android:layout_width="102dp"
+            android:layout_height="102dp"
+            android:padding="20dp"
             android:src="@drawable/ic_weather_forecast" />
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="40dp"
+            android:id="@+id/thirdIconAnim"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:padding="20dp"
             android:src="@drawable/ic_cat_black_face" />
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="40dp"
+            android:id="@+id/fourthIconAnim"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:padding="20dp"
             android:src="@drawable/ic_clapperboard" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
