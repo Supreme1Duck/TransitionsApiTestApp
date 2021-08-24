@@ -7,9 +7,7 @@ import android.os.Handler
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.FrameLayout
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.LinearLayoutCompat
@@ -44,24 +42,24 @@ class SplashScreen : AppCompatActivity() {
             fourthIcon = fourthIconAnim
         }
         loadAnimation()
-        val intent = Intent(this, MainActivity::class.java)
-        Handler().postDelayed(1400) {
+
+        Handler().postDelayed({
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-        }
+            finish()
+        }, 1700)
     }
 
     private fun loadAnimation() {
         animation = AnimationUtils.loadAnimation(this, R.anim.rotate_animation)
-        Handler().postDelayed(500) {
-            textView.visibility = View.VISIBLE
+        Handler().postDelayed(700) {
             linearLayout.visibility = View.VISIBLE
+            textView.visibility = View.VISIBLE
             imageAnim.visibility = View.VISIBLE
+            val fadeAnimation = AnimationUtils.loadAnimation(this, R.anim.icons_breeze_animation)
             imageAnim.startAnimation(animation)
-            val imageAnimation = AnimationUtils.loadAnimation(this, R.anim.icons_breeze_animation)
-            firstIcon.startAnimation(imageAnimation)
-            secondIcon.startAnimation(imageAnimation)
-            thirdIcon.startAnimation(imageAnimation)
-            fourthIcon.startAnimation(imageAnimation)
+            linearLayout.startAnimation(fadeAnimation)
+            textView.startAnimation(fadeAnimation)
         }
     }
 }
