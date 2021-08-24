@@ -1,5 +1,6 @@
 package com.example.transitionsapitestapp.ui.fragments.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -18,9 +19,11 @@ class MainFragmentViewModel (
     fun getWeather(name: String) {
         disposable.add(
             useCase.execute(name)
-                .subscribe { it ->
+                .subscribe ({ it ->
                     _liveData.value = it
-                }
+                },{
+                    Log.d("Error MainFragmentVM", "Time out to connect port, more in stackTrace.")
+                })
         )
     }
 

@@ -4,6 +4,7 @@ plugins {
     kotlin("kapt")
     id("androidx.navigation.safeargs")
     id("kotlin-android")
+    id ("com.google.gms.google-services")
 }
 
 android {
@@ -81,4 +82,9 @@ dependencies {
     implementation ("com.github.bumptech.glide:recyclerview-integration:4.11.0")
     implementation ("com.github.bumptech.glide:glide:4.11.0")
     kapt ("com.github.bumptech.glide:compiler:4.12.0")
+
+    //Firebase
+    implementation ("com.google.firebase:firebase-bom:28.4.0")
+    implementation ("com.google.firebase:firebase-analytics:19.0.1")
+    implementation("com.google.firebase:firebase-auth:21.0.1")
 }

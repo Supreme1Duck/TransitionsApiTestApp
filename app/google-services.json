@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "119678084461",
+    "project_id": "transition-app-c78bf",
+    "storage_bucket": "transition-app-c78bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:119678084461:android:bbb80cac99336239b4e664",
+        "android_client_info": {
+          "package_name": "com.example.transitionsapitestapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "119678084461-t1fr71fjf6jsf5jb9ugf14plvedb6f8h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkC5pNB5cCybCwkQktSz4iF2w1cDKUWKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "119678084461-t1fr71fjf6jsf5jb9ugf14plvedb6f8h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
