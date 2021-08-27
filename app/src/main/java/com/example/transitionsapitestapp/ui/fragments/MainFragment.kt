@@ -12,7 +12,9 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.transitionsapitestapp.databinding.MainFragmentLayoutBinding
 import com.example.transitionsapitestapp.di.viewmodel_factory.ViewModelFactory
+import com.example.transitionsapitestapp.ui.MainActivity
 import com.example.transitionsapitestapp.ui.fragments.viewmodels.MainFragmentViewModel
+import com.example.transitionsapitestapp.utils.CustomAlertDialog
 import com.example.transitionsapitestapp.utils.Validation
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
@@ -29,6 +31,7 @@ class MainFragment : DaggerFragment(), View.OnClickListener {
     private lateinit var pressureTextView: TextView
     private lateinit var transitionTextView: TextView
     private lateinit var validationText: TextView
+    private lateinit var mainActivity : MainActivity
 
     @Inject
     lateinit var factory: ViewModelFactory
@@ -36,6 +39,7 @@ class MainFragment : DaggerFragment(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mainActivity = activity as MainActivity
         viewModel = ViewModelProvider(this, factory)[MainFragmentViewModel::class.java]
     }
 
@@ -46,6 +50,7 @@ class MainFragment : DaggerFragment(), View.OnClickListener {
     ): View {
         viewBinding = MainFragmentLayoutBinding.inflate(inflater)
         val rootView = viewBinding.root
+        CustomAlertDialog(requireContext(), viewBinding.root).show()
         with(viewBinding) {
             editText = editTextMain
             button = buttonTransition

@@ -10,4 +10,5 @@
     <string name="news">NEWS</string>
     <string name="name">Name</string>
     <string name="title">TITLE</string>
+    <string name="wait_for_loading_your_personal_info">Wait for loading your personal info…</string>
 </resources>
