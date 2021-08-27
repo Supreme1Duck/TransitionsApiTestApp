@@ -8,11 +8,12 @@ import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
+import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
 import androidx.core.content.ContextCompat
 import com.example.transitionsapitestapp.R
 
-class CustomLoadingDialogView @JvmOverloads constructor(
+class CustomLoadingView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
@@ -112,6 +113,8 @@ class CustomLoadingDialogView @JvmOverloads constructor(
         animator = ValueAnimator.ofInt(0, 360).apply {
             duration = 500
             interpolator = LinearInterpolator()
+            repeatCount = ValueAnimator.INFINITE
+            repeatMode = ValueAnimator.REVERSE
             addUpdateListener { valueAnimator ->
                 currentSweepAngle = valueAnimator.animatedValue as Int
                 invalidate()

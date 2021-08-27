@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
-import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
@@ -15,14 +14,14 @@ import androidx.core.os.postDelayed
 import com.example.transitionsapitestapp.R
 import com.example.transitionsapitestapp.databinding.SplashScreenBinding
 import com.example.transitionsapitestapp.utils.Color
-import com.example.transitionsapitestapp.utils.CustomLoadingDialogView
+import com.example.transitionsapitestapp.utils.Constants.loadingColors
+import com.example.transitionsapitestapp.utils.CustomLoadingView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 @SuppressLint("CustomSplashScreen")
 class SplashScreen : AppCompatActivity() {
 
-    private lateinit var animation: Animation
     private lateinit var binding: SplashScreenBinding
     private lateinit var firstIcon: ImageView
     private lateinit var secondIcon: ImageView
@@ -31,7 +30,7 @@ class SplashScreen : AppCompatActivity() {
     private lateinit var linearLayout: LinearLayoutCompat
     private lateinit var textView: TextView
     private lateinit var auth: FirebaseAuth
-    private lateinit var customDialogView: CustomLoadingDialogView
+    private lateinit var customView: CustomLoadingView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +43,7 @@ class SplashScreen : AppCompatActivity() {
             secondIcon = secondIconAnim
             thirdIcon = thirdIconAnim
             fourthIcon = fourthIconAnim
-            customDialogView = customView
+            this@SplashScreen.customView = customView
         }
         auth = FirebaseAuth.getInstance()
         loadAnimation()
@@ -59,9 +58,8 @@ class SplashScreen : AppCompatActivity() {
     }
 
     private fun loadAnimation() {
-        animation = AnimationUtils.loadAnimation(this, R.anim.rotate_animation)
-        Handler().postDelayed(700) {
-            customDialogView.colors = listOf(Color.Red, Color.Green, Color.Black)
+        Handler().postDelayed(1000) {
+            customView.colors = loadingColors
             linearLayout.visibility = View.VISIBLE
             textView.visibility = View.VISIBLE
             val fadeAnimation = AnimationUtils.loadAnimation(this, R.anim.icons_breeze_animation)

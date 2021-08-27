@@ -47,4 +47,32 @@ object Validation {
                 !string.contains("~") &&
                 !string.contains("`")
     }
+
+    private fun validatePasswordAndLogin(string: String):Boolean{
+        return !string.contains("!") &&
+                !string.contains("?") &&
+                !string.contains("*") &&
+                !string.contains("%") &&
+                !string.contains("^") &&
+                !string.contains("#") &&
+                !string.contains("$") &&
+                !string.contains("@") &&
+                !string.contains(":") &&
+                !string.contains(";") &&
+                !string.contains("]") &&
+                !string.contains("[") &&
+                !string.contains("{") &&
+                !string.contains("}") &&
+                !string.contains("=") &&
+                !string.contains("+") &&
+                !string.contains("(") &&
+                !string.contains(")") &&
+                !string.contains(">") &&
+                !string.contains("<") &&
+                !string.contains(".") &&
+                !string.contains(",") &&
+                !string.contains("№") &&
+                !string.contains("~") &&
+                !string.contains("`")
+    }
 }

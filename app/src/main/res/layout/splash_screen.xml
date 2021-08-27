@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
-    <com.example.transitionsapitestapp.utils.CustomLoadingDialogView
+    <com.example.transitionsapitestapp.utils.CustomLoadingView
         android:id="@+id/customView"
         android:layout_width="75dp"
         android:layout_height="75dp"

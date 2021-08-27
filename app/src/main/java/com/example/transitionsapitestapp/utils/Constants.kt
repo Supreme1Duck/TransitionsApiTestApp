@@ -12,4 +12,6 @@ object Constants {
         RecyclerItem("News", "https://image.flaticon.com/icons/png/512/2964/2964063.png"),
         RecyclerItem("Movies", "https://image.flaticon.com/icons/png/512/777/777242.png")
     )
+
+    val loadingColors = listOf(Color.Red, Color.Green, Color.Black)
 }

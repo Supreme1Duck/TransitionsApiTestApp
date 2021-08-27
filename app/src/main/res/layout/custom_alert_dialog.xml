@@ -26,13 +26,12 @@
             android:textColor="@color/black"
             android:textSize="16sp" />
 
-        <ImageView
-            android:id="@+id/image_loading"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+        <com.example.transitionsapitestapp.utils.CustomLoadingView
+            android:id="@+id/loading_view"
+            android:layout_width="70dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="50dp"
-            android:src="@drawable/ic_sync_circular_arrows" />
+            android:layout_height="70dp"/>
 
         <Button
             android:id="@+id/button_cancel"
