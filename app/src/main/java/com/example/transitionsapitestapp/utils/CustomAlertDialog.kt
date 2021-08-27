@@ -47,7 +47,6 @@ class CustomAlertDialog(
                     repeatMode = Animation.REVERSE
                     duration = 1000L
                 }
-        Log.d("Size", image.measuredWidth.toString())
         image.startAnimation(animation)
     }
 }
