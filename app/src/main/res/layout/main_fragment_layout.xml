@@ -1,175 +1,230 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_splash_screen"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@drawable/background_splash_screen">
 
     <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:src="@drawable/ic_cloud_computing"
-        app:tint="@color/purple_500"
         app:layout_constraintBottom_toTopOf="@id/clouds"
         app:layout_constraintLeft_toLeftOf="@id/clouds"
         app:layout_constraintRight_toRightOf="@id/clouds"
-        android:layout_width="50dp"
-        android:layout_height="50dp"/>
+        app:tint="@color/purple_500" />
 
     <TextView
-        android:text="few clouds"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:gravity="center"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="90dp"
         android:id="@+id/clouds"
         android:layout_width="120dp"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="90dp"
+        android:gravity="center"
+        android:text="few clouds"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:src="@drawable/ic_sun"
-        app:tint="@color/purple_500"
         app:layout_constraintBottom_toTopOf="@id/weather"
         app:layout_constraintLeft_toLeftOf="@id/weather"
         app:layout_constraintRight_toRightOf="@id/weather"
-        android:layout_width="50dp"
-        android:layout_height="50dp"/>
+        app:tint="@color/purple_500" />
 
     <TextView
-        android:text="288.01"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="170dp"
-        android:layout_marginTop="90dp"
         android:id="@+id/weather"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="90dp"
+        android:text="288.01"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:src="@drawable/ic_smile"
         app:layout_constraintBottom_toTopOf="@id/weather_feel"
         app:layout_constraintLeft_toLeftOf="@id/weather_feel"
         app:layout_constraintRight_toRightOf="@id/weather_feel"
-        android:layout_width="50dp"
-        app:tint="@color/purple_500"
-        android:layout_height="50dp"/>
+        app:tint="@color/purple_500" />
 
     <TextView
-        android:text="288.01"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="280dp"
-        android:layout_marginTop="90dp"
         android:id="@+id/weather_feel"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="90dp"
+        android:text="288.01"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:src="@drawable/ic_breeze"
-        app:tint="@color/purple_500"
         app:layout_constraintBottom_toTopOf="@id/wind"
         app:layout_constraintLeft_toLeftOf="@id/wind"
         app:layout_constraintRight_toRightOf="@id/wind"
-        android:layout_width="50dp"
-        android:layout_height="50dp"/>
+        app:tint="@color/purple_500" />
 
     <TextView
-        android:text="4 m/s"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="190dp"
         android:id="@+id/wind"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="190dp"
+        android:text="4 m/s"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:src="@drawable/ic_gauge"
-        app:tint="@color/purple_500"
         app:layout_constraintBottom_toTopOf="@id/pressure"
         app:layout_constraintLeft_toLeftOf="@id/pressure"
         app:layout_constraintRight_toRightOf="@id/pressure"
-        android:layout_width="50dp"
-        android:layout_height="50dp"/>
+        app:tint="@color/purple_500" />
 
     <TextView
-        android:text="10013 PA"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="230dp"
-        android:layout_marginTop="190dp"
         android:id="@+id/pressure"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="190dp"
+        android:text="10013 PA"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edit_text_main"
-        android:textSize="20sp"
-        android:hint="Enter your name"
-        android:gravity="center_horizontal"
         android:layout_width="match_parent"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
         android:layout_height="48dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="-70dp"
+        android:layout_marginEnd="25dp"
         android:backgroundTint="@color/purple_700"
+        android:gravity="center_horizontal"
+        android:hint="Enter your name"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/helo_text_transition"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_text_main"
         android:layout_width="match_parent"
-        tools:text="Your Name"
-        android:visibility="invisible"
+        android:layout_height="wrap_content"
         android:gravity="center"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_height="wrap_content"
-        android:transitionName="hello_text"/>
+        android:transitionName="hello_text"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_main"
+        tools:text="Your Name" />
 
     <TextView
         android:id="@+id/text_validation"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_text_main"
         android:layout_width="match_parent"
-        tools:visibility="visible"
-        android:visibility="invisible"
+        android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:gravity="center"
-        android:textSize="17sp"
         android:text="@string/type_only_letters"
         android:textColor="@color/red"
-        android:layout_height="wrap_content"
-        android:transitionName="hello_text"/>
+        android:textSize="17sp"
+        android:transitionName="hello_text"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_main" />
+
+    <EditText
+        android:id="@+id/edit_text_login"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:backgroundTint="@color/purple_700"
+        android:gravity="center_horizontal"
+        android:hint="Login"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_validation"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/edit_text_password"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="25dp"
+        android:backgroundTint="@color/purple_700"
+        android:gravity="center_horizontal"
+        android:hint="Password"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_login"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/button_transition"
         android:layout_width="200dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="25dp"
         android:text="@string/move"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="25dp"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        app:layout_constraintBottom_toTopOf="@id/button_transition"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/already_have_an_account" />
+
+        <TextView
+            android:id="@+id/button_sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/sign_up"
+            android:textColor="@color/purple_700" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

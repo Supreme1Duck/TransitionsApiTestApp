@@ -4,6 +4,7 @@ plugins {
     kotlin("kapt")
     id("androidx.navigation.safeargs")
     id("kotlin-android")
+    id ("com.google.gms.google-services")
 }
 
 android {
@@ -50,6 +51,7 @@ dependencies {
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.0")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("com.google.firebase:firebase-common-ktx:20.0.0")
     testImplementation("junit:junit:4.+")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
@@ -81,4 +83,10 @@ dependencies {
     implementation ("com.github.bumptech.glide:recyclerview-integration:4.11.0")
     implementation ("com.github.bumptech.glide:glide:4.11.0")
     kapt ("com.github.bumptech.glide:compiler:4.12.0")
+
+    //Firebase
+    implementation ("com.google.firebase:firebase-bom:28.4.0")
+    implementation ("com.google.firebase:firebase-analytics:19.0.1")
+    implementation("com.google.firebase:firebase-auth:21.0.1")
+    implementation ("com.google.android.gms:play-services-auth:19.2.0")
 }
